@@ -6,6 +6,7 @@
  ****************************************************************/
 #include <stdio.h>
 #include <stdlib.h>
+#include <conio.h>
 #include <windows.h>
 
 #define WORLD_SIZE  (60)
@@ -93,7 +94,6 @@ int main(int argc, char *argv[])
 
 		current = !current;
 		++gen;
-		
 		Sleep(DELAY);
 	}
 	/* Show the last world */
@@ -207,7 +207,7 @@ void start_rand(char world[SIZEX][SIZEY])
  ****************************************************************/
 int condition(int gen, int changed)
 {
-	return 0 != changed;
+	return ( (0 != changed) && (0 == _kbhit()) );
 }
 
 /****************************************************************
