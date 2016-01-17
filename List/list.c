@@ -1,18 +1,18 @@
 /****************************************************************
- * Summary: This library implements a bi-directional			*
- *          linked list.										*
+ * Summary: This library implements a bi-directional            *
+ *          linked list.                                        *
  ****************************************************************/
 
 #include <stdlib.h>
 #include "list.h"
 
 /****************************************************************
- * Summary: Creates an empty list and returns a pointer			*
- *          to the list.										*
- *																*
- * Parameters: None.											*
- *																*
- * Returns: A pointer to list_t or NULL if failed.				*
+ * Summary: Creates an empty list and returns a pointer         *
+ *          to the list.                                        *
+ *                                                              *
+ * Parameters: None.                                            *
+ *                                                              *
+ * Returns: A pointer to list_t or NULL if failed.              *
  ****************************************************************/
 list_t * list_create()
 {
@@ -34,11 +34,11 @@ list_t * list_create()
 }
 
 /****************************************************************
- * Summary: Destroys a list, freeing memory.					*
- *																*
- * Parameters: list - A pointer to the list_t to destroy.		*
- *																*
- * Returns: void.												*
+ * Summary: Destroys a list, freeing memory.                    *
+ *                                                              *
+ * Parameters: list - A pointer to the list_t to destroy.       *
+ *                                                              *
+ * Returns: void.                                               *
  ****************************************************************/
 void list_destroy(list_t * list)
 {
@@ -51,13 +51,13 @@ void list_destroy(list_t * list)
 }
 
 /****************************************************************
- * Summary: Adds value to the end of the list.					*
- *																*
- * Parameters: list - A pointer to the list_t.					*
- *             value - The value to add.						*
- *																*
- * Returns: A pointer to the added list_node_t or NULL			*
- *          if failed.											*
+ * Summary: Adds value to the end of the list.                  *
+ *                                                              *
+ * Parameters: list - A pointer to the list_t.                  *
+ *             value - The value to add.                        *
+ *                                                              *
+ * Returns: A pointer to the added list_node_t or NULL          *
+ *          if failed.                                          *
  ****************************************************************/
 list_node_t * list_add_node(list_t * list, int value)
 {
@@ -94,12 +94,12 @@ list_node_t * list_add_node(list_t * list, int value)
 }
 
 /****************************************************************
- * Summary: Removes a node from a list.							*
- *																*
- * Parameters: list - A pointer to the list_t.					*
- *             node - A pointer to the list_node_t to remove.	*
- *																*
- * Returns: void.												*
+ * Summary: Removes a node from a list.                         *
+ *                                                              *
+ * Parameters: list - A pointer to the list_t.                  *
+ *             node - A pointer to the list_node_t to remove.   *
+ *                                                              *
+ * Returns: void.                                               *
  ****************************************************************/
 void list_remove_node(list_t * list, list_node_t * node)
 {
@@ -128,11 +128,11 @@ void list_remove_node(list_t * list, list_node_t * node)
 }
 
 /****************************************************************
- * Summary: Gets the amount of values in a list.				*
- *																*
- * Parameters: list - A pointer to the list_t.					*
- *																*
- * Returns: The amount of values in the list.					*
+ * Summary: Gets the amount of values in a list.                *
+ *                                                              *
+ * Parameters: list - A pointer to the list_t.                  *
+ *                                                              *
+ * Returns: The amount of values in the list.                   *
  ****************************************************************/
 int list_get_count(list_t * list)
 {
@@ -140,11 +140,11 @@ int list_get_count(list_t * list)
 }
 
 /****************************************************************
- * Summary: Gets the average of the values in a list.			*
- *																*
- * Parameters: list - A pointer to the list_t.					*
- *																*
- * Returns: The average of the values in the list.				*
+ * Summary: Gets the average of the values in a list.           *
+ *                                                              *
+ * Parameters: list - A pointer to the list_t.                  *
+ *                                                              *
+ * Returns: The average of the values in the list.              *
  ****************************************************************/
 double list_get_average(list_t * list)
 {
@@ -152,11 +152,11 @@ double list_get_average(list_t * list)
 }
 
 /****************************************************************
- * Summary: Gets the first node in a list.						*
- *																*
- * Parameters: list - A pointer to the list_t.					*
- *																*
- * Returns: A pointer to the first list_node_t.					*
+ * Summary: Gets the first node in a list.                      *
+ *                                                              *
+ * Parameters: list - A pointer to the list_t.                  *
+ *                                                              *
+ * Returns: A pointer to the first list_node_t.                 *
  ****************************************************************/
 list_node_t * list_get_head(list_t * list)
 {
@@ -164,11 +164,11 @@ list_node_t * list_get_head(list_t * list)
 }
 
 /****************************************************************
- * Summary: Gets the last node in a list.						*
- *																*
- * Parameters: list - A pointer to the list_t.					*
- *																*
- * Returns: A pointer to the last list_node_t.					*
+ * Summary: Gets the last node in a list.                       *
+ *                                                              *
+ * Parameters: list - A pointer to the list_t.                  *
+ *                                                              *
+ * Returns: A pointer to the last list_node_t.                  *
  ****************************************************************/
 list_node_t * list_get_tail(list_t * list)
 {
@@ -176,11 +176,11 @@ list_node_t * list_get_tail(list_t * list)
 }
 
 /****************************************************************
- * Summary: Gets the next node.									*
- *																*
- * Parameters: node - A pointer to the list_node_t.				*
- *																*
- * Returns: A pointer to the next list_node_t.					*
+ * Summary: Gets the next node.                                 *
+ *                                                              *
+ * Parameters: node - A pointer to the list_node_t.             *
+ *                                                              *
+ * Returns: A pointer to the next list_node_t.                  *
  ****************************************************************/
 list_node_t * list_get_next_node(list_node_t * node)
 {
@@ -188,11 +188,11 @@ list_node_t * list_get_next_node(list_node_t * node)
 }
 
 /****************************************************************
- * Summary: Gets the previous node.								*
- *																*
- * Parameters: node - A pointer to the list_node_t.				*
- *																*
- * Returns: A pointer to the previous list_node_t.				*
+ * Summary: Gets the previous node.                             *
+ *                                                              *
+ * Parameters: node - A pointer to the list_node_t.             *
+ *                                                              *
+ * Returns: A pointer to the previous list_node_t.              *
  ****************************************************************/
 list_node_t * list_get_prev_node(list_node_t * node)
 {
@@ -200,11 +200,11 @@ list_node_t * list_get_prev_node(list_node_t * node)
 }
 
 /****************************************************************
- * Summary: Gets the value of a node.							*
- *																*
- * Parameters: node - A pointer to the list_node_t.				*
- *																*
- * Returns: The value of the node.								*
+ * Summary: Gets the value of a node.                           *
+ *                                                              *
+ * Parameters: node - A pointer to the list_node_t.             *
+ *                                                              *
+ * Returns: The value of the node.                              *
  ****************************************************************/
 int list_get_node_value(list_node_t * node)
 {

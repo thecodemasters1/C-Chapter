@@ -1,17 +1,17 @@
 /****************************************************************
- * Summary: This library implements a queue.					*
+ * Summary: This library implements a queue.                    *
  ****************************************************************/
 
 #include <stdlib.h>
 #include "queue.h"
 
 /****************************************************************
- * Summary: Creates an empty queue and returns a pointer		*
- *          to the queue.										*
- *																*
- * Parameters: None.											*
- *																*
- * Returns: A pointer to queue_t or NULL if failed.				*
+ * Summary: Creates an empty queue and returns a pointer        *
+ *          to the queue.                                       *
+ *                                                              *
+ * Parameters: None.                                            *
+ *                                                              *
+ * Returns: A pointer to queue_t or NULL if failed.             *
  ****************************************************************/
 queue_t * queue_create()
 {
@@ -31,11 +31,11 @@ queue_t * queue_create()
 }
 
 /****************************************************************
- * Summary: Destroys a queue, freeing memory.					*
- *																*
- * Parameters: queue - A pointer to the queue_t to destroy.		*
- *																*
- * Returns: void.												*
+ * Summary: Destroys a queue, freeing memory.                   *
+ *                                                              *
+ * Parameters: queue - A pointer to the queue_t to destroy.     *
+ *                                                              *
+ * Returns: void.                                               *
  ****************************************************************/
 void queue_destroy(queue_t * queue)
 {
@@ -49,12 +49,12 @@ void queue_destroy(queue_t * queue)
 }
 
 /****************************************************************
- * Summary: Adds value to the end of the queue.					*
- *																*
- * Parameters: queue - A pointer to the queue_t.				*
- *             value - The value to add.						*
- *																*
- * Returns: 0 if completed successfully, -1 if failed.			*
+ * Summary: Adds value to the end of the queue.                 *
+ *                                                              *
+ * Parameters: queue - A pointer to the queue_t.                *
+ *             value - The value to add.                        *
+ *                                                              *
+ * Returns: 0 if completed successfully, -1 if failed.          *
  ****************************************************************/
 int queue_push(queue_t * queue, int value)
 {
@@ -85,13 +85,13 @@ int queue_push(queue_t * queue, int value)
 }
 
 /****************************************************************
- * Summary: Pops a value from a queue.							*
- *																*
- * Parameters: queue - A pointer to the queue_t.				*
- *             out - A pointer to an int to hold the popped		*
- *                   value.										*
- *																*
- * Returns: 0 if completed successfully, -1 if failed.			*
+ * Summary: Pops a value from a queue.                          *
+ *                                                              *
+ * Parameters: queue - A pointer to the queue_t.                *
+ *             out - A pointer to an int to hold the popped     *
+ *                   value.                                     *
+ *                                                              *
+ * Returns: 0 if completed successfully, -1 if failed.          *
  ****************************************************************/
 int queue_pop(queue_t * queue, int *out)
 {
@@ -121,11 +121,11 @@ int queue_pop(queue_t * queue, int *out)
 }
 
 /****************************************************************
- * Summary: Gets the amount of values in a queue.				*
- *																*
- * Parameters: queue - A pointer to the queue_t.				*
- *																*
- * Returns: The amount of values in the queue.					*
+ * Summary: Gets the amount of values in a queue.               *
+ *                                                              *
+ * Parameters: queue - A pointer to the queue_t.                *
+ *                                                              *
+ * Returns: The amount of values in the queue.                  *
  ****************************************************************/
 int queue_get_count(queue_t * queue)
 {
@@ -133,13 +133,13 @@ int queue_get_count(queue_t * queue)
 }
 
 /****************************************************************
- * Summary: Gets the value at the top of the queue without		*
- *          removing it.										*
- *																*
- * Parameters: queue - A pointer to the queue_t.				*
- *             out - A pointer to an int to hold the value.		*
- *																*
- * Returns: 0 if completed successfully, -1 if failed.			*
+ * Summary: Gets the value at the top of the queue without      *
+ *          removing it.                                        *
+ *                                                              *
+ * Parameters: queue - A pointer to the queue_t.                *
+ *             out - A pointer to an int to hold the value.     *
+ *                                                              *
+ * Returns: 0 if completed successfully, -1 if failed.          *
  ****************************************************************/
 int queue_peek(queue_t * queue, int *out)
 {
