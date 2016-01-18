@@ -96,10 +96,6 @@ int main(int argc, char *argv[])
 		current = !current;
 
 		Sleep(DELAY);
-		/*while (!_kbhit())
-		{
-		}
-		_getch();*/
 	}
 	/* Show the last world */
 	print(world[current]);
