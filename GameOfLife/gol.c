@@ -96,6 +96,10 @@ int main(int argc, char *argv[])
 		current = !current;
 
 		Sleep(DELAY);
+		/*while (!_kbhit())
+		{
+		}
+		_getch();*/
 	}
 	/* Show the last world */
 	print(world[current]);
@@ -224,11 +228,18 @@ char check_cell(char world[SIZEX][SIZEY], int row, int col)
 {
 	int c_alive = 0;
 	int i = 0, j = 0; /* Loop variables */
+	int i_start = 0, i_end = 0, j_start = 0, j_end = 0; /* Loop limits */
+	
+	/* Calculate edges */
+	i_start = ((row > 0) ? row - 1 : row);
+	i_end = ((row < SIZEX - 1) ? row + 1 : row);
+	j_start =  ((col > 0) ? col - 1 : col);
+	j_end = ((col < SIZEY - 1) ? col + 1 : col);
 
 	/* Count living cells agound this one. */
-	for (i = ((row > 0) ? row - 1 : row) ; i <= ((row < SIZEX - 1) ? row + 1 : row) ; ++i) {
-		for (j = ((col > 0) ? col - 1 : col) ; j <= ((col < SIZEY - 1) ? col + 1 : col) ; ++j) {
-			if ((i != row) || (j != col)) {
+	for (i = i_start ; i <= i_end ; ++i) {
+		for (j = j_start ; j <= j_end ; ++j) {
+			if (!((i == row) && (j == col))) {
 				c_alive += (world[i][j] == ALIVE);
 			}
 		}
@@ -239,7 +250,7 @@ char check_cell(char world[SIZEX][SIZEY], int row, int col)
 		return ALIVE;
 	}
 	/* A live cell with two or three live neighbors stays alive (survival). */
-	if ((world[row][col] == DEAD) && ( (c_alive == 2) || (c_alive == 3) )) {
+	if ((world[row][col] == ALIVE) && ( (c_alive == 2) || (c_alive == 3) )) {
 		return ALIVE;
 	}
 	/* In all other cases, a cell dies or remains dead (overcrowding or loneliness). */
