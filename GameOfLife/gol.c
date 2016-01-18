@@ -29,7 +29,7 @@ int start_file(char world[SIZEX][SIZEY], char *file_name);
 
 void start_rand(char world[SIZEX][SIZEY]);
 
-int condition(int gen, int changed);
+int condition(int changed);
 
 char check_cell(char world[SIZEX][SIZEY], int i, int j);
 
@@ -42,7 +42,6 @@ static HANDLE wHnd = NULL;    /* Handle to change window size */
 int main(int argc, char *argv[])
 {
 	int current = 0;
-	int gen = 0;
 	int changed = 0;
 	char world[2][SIZEX][SIZEY];
 
@@ -80,20 +79,19 @@ int main(int argc, char *argv[])
 	/* Initialize other variables */
 	current = 0;
 	changed = 1;
-	gen = 1;
 
 	/* Make console window big enough */
 	set_window_size();
 
 	/* step */
-	while (0 != condition(gen, changed)) {
+	while (0 != condition(changed)) {
 		/* Show the world */
 		print(world[current]);
 		/* Next step */
 		changed = step(world[current], world[!current]);
 
 		current = !current;
-		++gen;
+
 		Sleep(DELAY);
 	}
 	/* Show the last world */
@@ -199,13 +197,12 @@ void start_rand(char world[SIZEX][SIZEY])
 /****************************************************************
  * Summary: Checks the condition whether to continue or stop.   *
  *                                                              *
- * Parameters: gen - the number of the current generation.      *
- *             changed - 1 if the world changed in the last     *
+ * Parameters: changed - 1 if the world changed in the last     *
  *                       step, 0 if it didn't.                  *
  *                                                              *
  * Returns: Non-0 if condition exists, otherwise 0.             *
  ****************************************************************/
-int condition(int gen, int changed)
+int condition(int changed)
 {
 	return ( (0 != changed) && (0 == _kbhit()) );
 }
