@@ -83,6 +83,9 @@ int main(int argc, char *argv[])
 	/* Make console window big enough */
 	set_window_size();
 
+	/* Clear screen */
+	system("cls");
+
 	/* step */
 	while (0 != condition(changed)) {
 		/* Show the world */
@@ -283,8 +286,7 @@ void print(char world[SIZEX][SIZEY])
 	COORD posZero = {0, 0};
 	
 	SetConsoleCursorPosition(wHnd, posZero);
-	/*Old solution:
-	system("cls");*/
+	
 	for (i = 0 ; i < SIZEX ; ++i) {
 		for (j = 0 ; j < SIZEY ; ++j) {
 			printf("%c", world[i][j]);
