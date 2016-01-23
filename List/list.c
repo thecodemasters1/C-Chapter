@@ -43,7 +43,7 @@ list_t * list_create()
 void list_destroy(list_t * list)
 {
 	/* Free all nodes' memory. */
-	while (list->head != NULL) {
+	while (list->head != NULL) { // T: validate list_t list is not null
 		list_remove_node(list, list->head);
 	}
 	/* Free list memory. */
@@ -76,7 +76,7 @@ list_node_t * list_add_node(list_t * list, int value)
 	new_node->val = value;
 	new_node->prev = list->tail;
 	new_node->next = NULL;
-	if (list->tail != NULL) { /* if not adding to an empty list */
+	if (list->tail != NULL) { /* if not adding to an empty list */ // T: validate list_t list is not null
 		list->tail->next = new_node;
 	}
 	list->tail = new_node;
@@ -85,7 +85,7 @@ list_node_t * list_add_node(list_t * list, int value)
 	}
 
 	/* Update list's count and avg. */
-	sum = (list->avg) * (list->count);
+	sum = (list->avg) * (list->count); // T: would be easier if you saved the sum instead of the avarage
 	sum += value;
 	++(list->count);
 	list->avg = sum / (list->count);
@@ -106,7 +106,7 @@ void list_remove_node(list_t * list, list_node_t * node)
 	double sum;
 
 	/* Update list's count and avg. */
-	sum = (list->avg) * (list->count);
+	sum = (list->avg) * (list->count); // T: validate list_t list is not null
 	sum -= (node->val);
 	--(list->count);
 	list->avg = sum / (list->count);
@@ -136,7 +136,7 @@ void list_remove_node(list_t * list, list_node_t * node)
  ****************************************************************/
 int list_get_count(list_t * list)
 {
-	return list->count;
+	return list->count; // T: validate list_t list is not null
 }
 
 /****************************************************************
@@ -148,7 +148,7 @@ int list_get_count(list_t * list)
  ****************************************************************/
 double list_get_average(list_t * list)
 {
-	return list->avg;
+	return list->avg; // T: validate list_t list is not null
 }
 
 /****************************************************************
@@ -160,7 +160,7 @@ double list_get_average(list_t * list)
  ****************************************************************/
 list_node_t * list_get_head(list_t * list)
 {
-	return list->head;
+	return list->head; // T: validate list_t list is not null
 }
 
 /****************************************************************
@@ -172,7 +172,7 @@ list_node_t * list_get_head(list_t * list)
  ****************************************************************/
 list_node_t * list_get_tail(list_t * list)
 {
-	return list->tail;
+	return list->tail; // T: validate list_t list is not null
 }
 
 /****************************************************************
@@ -184,7 +184,7 @@ list_node_t * list_get_tail(list_t * list)
  ****************************************************************/
 list_node_t * list_get_next_node(list_node_t * node)
 {
-	return node->next;
+	return node->next; // T: validate list_node_t node is not null
 }
 
 /****************************************************************
@@ -196,7 +196,7 @@ list_node_t * list_get_next_node(list_node_t * node)
  ****************************************************************/
 list_node_t * list_get_prev_node(list_node_t * node)
 {
-	return node->prev;
+	return node->prev; // T: validate list_node_t node is not null
 }
 
 /****************************************************************
@@ -208,5 +208,5 @@ list_node_t * list_get_prev_node(list_node_t * node)
  ****************************************************************/
 int list_get_node_value(list_node_t * node)
 {
-	return node->val;
+	return node->val; // T: validate list_node_t node is not null
 }
