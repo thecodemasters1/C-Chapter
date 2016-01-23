@@ -18,13 +18,13 @@ circle_node_t * circle_node_create(char *word)
 
 	if (NULL != new_node) {
 		/* Allocate more memory */
-		(*new_node).word = (char *)malloc(sizeof(char) * (strlen(word) + 1));
+		(*new_node).word = (char *)malloc(sizeof(char) * (strlen(word) + 1)); // T: 1- check word is not null, unsafe use of strlen, use strnlen
 		if (NULL == (*new_node).word) {
 			free(new_node);
 			return NULL;
 		}
 		/* Initialize values */
-		strcpy((*new_node).word, strlwr(word));
+		strcpy((*new_node).word, strlwr(word)); // T: y u no strlen?..
 		(*new_node).word[strlen(word)] = '\0';
 		(*new_node).next = new_node;
 	}
