@@ -40,7 +40,7 @@ queue_t * queue_create()
 void queue_destroy(queue_t * queue)
 {
 	/* Remove all values. */
-	while (queue->count > 0) {
+	while (queue->count > 0) { // T: validate queue_t queue is not null
 		queue_pop(queue, NULL);
 	}
 
@@ -62,13 +62,13 @@ int queue_push(queue_t * queue, int value)
 	queue_node_t * temp = (queue_node_t *)malloc(sizeof(queue_node_t));
 
 	if (temp == NULL) {
-		return -1;
+		return -1; // T: better use defines
 	}
 	
 	/* Initialize and add to queue. */
 	temp->val = value;
 	temp->next = NULL;
-	if (queue->tail != NULL) {/* prevent crashing when adding to an empty queue */
+	if (queue->tail != NULL) {/* prevent crashing when adding to an empty queue */ // T: validate queue_t queue is not null
 		queue->tail->next = temp;
 	}
 	queue->tail = temp;
@@ -98,8 +98,8 @@ int queue_pop(queue_t * queue, int *out)
 	int val;
 	queue_node_t * temp;
 
-	if (queue->head == NULL) {/* if popping from an empty queue */
-		return -1;
+	if (queue->head == NULL) {/* if popping from an empty queue */ // T: validate queue_t queue is not null
+		return -1; // T: better use defines
 	}
 
 	/* Save removed node and promote node. */
@@ -115,7 +115,7 @@ int queue_pop(queue_t * queue, int *out)
 
 	/* Completed successfully. */
 	if (out != NULL) {
-		*out = val;
+		*out = val; // T: nice use of out parameter
 	}
 	return 0;
 }
@@ -129,7 +129,7 @@ int queue_pop(queue_t * queue, int *out)
  ****************************************************************/
 int queue_get_count(queue_t * queue)
 {
-	return queue->count;
+	return queue->count; // T: validate queue_t queue is not null
 }
 
 /****************************************************************
@@ -143,7 +143,7 @@ int queue_get_count(queue_t * queue)
  ****************************************************************/
 int queue_peek(queue_t * queue, int *out)
 {
-	if (queue->head != NULL) { /* prevent peeking into an empty queue */
+	if (queue->head != NULL) { /* prevent peeking into an empty queue */ // T: validate queue_t queue is not null
 		if (out != NULL) {
 			*out = queue->head->val;
 		}
